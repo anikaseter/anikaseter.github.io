@@ -30,9 +30,9 @@ const canvas = document.createElement('canvas')
     }
 
     for (let j = 0; j < height; j++) {
-      let rColModifier = 1.19
-      let gColModifier = 1
-      let bColModifier = 1.34
+      let rColModifier = 1.19 
+      let gColModifier = 1 
+      let bColModifier = 1.34 
 
       let Rcol = (108 + j * grad) * rColModifier
       let Gcol = (108 + j * grad) * gColModifier
