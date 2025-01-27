@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+    <link href="minimal-table.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <table>
+        <caption>
+            A table made for testing.
+        </caption>
+        <thead>
+            <tr><th colspan="5" scope="colgroup">This is a big header</th></tr>
+            <tr>
+                <td></td>
+                <th scope="col">This is a column header</th>
+                <th scope="col">This is a column header</th>
+                <th scope="col">This is a column header</th>
+                <th scope="col">This is a column header</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">This is a row header</th>
+                <td>This is a cell</td>
+                <td>This is a cell</td>
+                <td colspan="2", rowspan="2">This is a big cell</td>
+            </tr>
+            <tr>
+                <th scope="row">This is a row header</th>
+                <td>This is a cell</td>
+                <td>This is a cell</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
