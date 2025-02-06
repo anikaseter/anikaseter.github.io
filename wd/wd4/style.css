@@ -11,7 +11,8 @@ body {
 
 img {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   height: 100%;
   scale: 1.2;
   translate: 0 0;
@@ -32,7 +33,7 @@ img {
   --ratio-x: 0;
   --ratio-y: 0;
   overflow: hidden;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4.5 / 3;
   width: clamp(260px, 50vmin, 320px);
   border-radius: 8px;
   transform-style: preserve-3d;
@@ -167,7 +168,8 @@ html {
         50% 50% / var(--size) var(--size),
       linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
         var(--size) var(--size);
-    mask: linear-gradient(-20deg, transparent 50%, white);
+    -webkit-mask: linear-gradient(-20deg, transparent 50%, white);
+            mask: linear-gradient(-20deg, transparent 50%, white);
     top: 0;
     transform-style: flat;
     pointer-events: none;
