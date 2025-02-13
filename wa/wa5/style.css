@@ -1,0 +1,102 @@
+html, body {
+    font-size: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0px;
+}
+
+#newsScreen {
+    margin: 1em;
+    position: absolute;
+    background: linear-gradient(rgb(43, 17, 17), 40%, rgb(122, 23, 23), 60%, rgb(43, 17, 17));
+    height: 50em;
+    width: 75em;
+}
+
+#xlov {
+    width: 50em;
+    margin: 1em;
+    margin-right: 5em;
+    border: .5em solid white;
+    z-index: 1;
+}
+
+#sideBox {
+    background-color: rgb(118, 22, 22);
+    position: absolute;
+    z-index: 2;
+    border: .5em solid white;
+    left: 50em;
+    top: 2.5em;
+    width: 23em;
+    height: 30em;
+    color: white;
+    text-align: center;
+}
+
+#sideBox h2 {
+    position: relative;
+    margin: 0;
+    margin-top: .25em;
+    font-size: 4em;
+}
+
+#sideBox p {
+    font-size: 2em;
+    margin: 1em .2em;
+}
+
+#sideBox a {
+    color: rgb(239, 126, 126);
+}
+
+#sideBox #viewCount {
+    font-size: 3em;
+    margin:.3em -0;
+    padding: .3em;
+    border-top: .1em solid white;
+    border-bottom: .1em solid white;
+}
+
+#logo {
+    position: absolute;
+    z-index: 2;
+    width: 30em;
+    top: 23.5em;
+    left: 12.5em;
+}
+
+#bottomBar {
+    position: absolute;
+    z-index: 3;
+    background-color: rgb(118, 22, 22);
+    border: .5em solid white;
+    margin-top: -.5em;
+    margin-left: 1em;
+    width: 72em;
+    height: 12em;
+    color: white;
+}
+
+#squareLogo {
+    display: inline;
+    width: 10em;
+    margin: .75em;
+}
+
+#bottomBar h2 {
+    display: inline;
+    position: absolute;
+    font-size: 2.5em;
+    margin: 1rem;
+    padding: 0;
+}
+
+#bottomBar p {
+    display: inline;
+    position: absolute;
+    font-size: 2em;
+    margin: 1rem;
+    padding: 0;
+    top: 1.5em;
+    max-width: 55rem;
+}
