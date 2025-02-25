@@ -1,0 +1,52 @@
+body{
+    background-color: khaki;
+}
+#box1{
+    width: 25vw;
+    height: 20vh;
+    align-content: center;
+    text-align: center;
+    background-color: indianred;
+    transition: background-color .5s, 
+    width .5s, 
+    height .5s, 
+    font-size .5s;
+}
+
+#box1:hover {
+    background-color: purple;
+    width: 26vw;
+    height: 21vh;
+    font-size: 17px;
+}
+
+#box2{
+    width: 25vw;
+    height:20vh;
+    position: relative;
+    background-color: orangered;
+    text-align: center;
+    align-content: center;
+    margin-top: 10px;
+    animation-name: box2move;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes box2move{
+    from {
+        translate: 0 0;
+    }
+    25% {
+        translate: 70vw 50vh;
+    }
+    50% {
+        translate: 70vw 0vh;
+    }
+    75% {
+        translate: 0 50vh;
+    }
+    to {
+        translate: 0 0;
+    }
+}
