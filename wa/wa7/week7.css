@@ -86,7 +86,7 @@ img{
     animation: circle 6s infinite linear reverse;
 }
 
-#red-ball{
+.ball{
     background-color: rgb(195, 155, 230);
     width: 20px;
     height:20px;
