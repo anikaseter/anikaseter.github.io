@@ -1,0 +1,160 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(67, 32, 88);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(239, 237, 228);
+}
+
+nav {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background: rgb(195, 155, 230);
+}
+
+nav a{
+    padding: 10px 40px;
+    text-align: center;
+    color: black;
+    background-color: rgb(195, 155, 230);
+    transition: background-color .5s, padding .5s;
+}
+
+nav a:hover {
+    background-color: rgb(210, 188, 229);
+    padding: 10px 60px;
+}
+
+@media screen and (max-width: 650px) {
+    nav a{
+        padding: 10px 10px;
+    }
+    nav a:hover{
+        padding: 10px 20px;
+    }
+}
+
+img{
+    width:30vw;
+    height: 30vh;
+}
+
+#Header {
+    display: flex;
+}
+
+#Words {
+    margin-left: 120px;
+}
+
+#ball1 {
+    position: absolute;
+    top: 20px;
+    z-index: -1;
+    width: 100px;
+    height: 100px;
+    animation: circle 6s infinite linear reverse;
+}
+
+#ball2 {
+    position: absolute;
+    z-index: -1;
+    width: 100px;
+    height: 100px;
+    animation: circle 6s infinite linear;
+}
+
+#ball3 {
+    position: absolute;
+    top: 30px;
+    z-index: -1;
+    width: 100px;
+    height: 100px;
+    animation: circle 6s infinite linear;
+}
+
+#ball4 {
+    position: absolute;
+    top: 40px;
+    z-index: -1;
+    width: 100px;
+    height: 100px;
+    animation: circle 6s infinite linear reverse;
+}
+
+#red-ball{
+    background-color: rgb(195, 155, 230);
+    width: 20px;
+    height:20px;
+    border-radius: 50%;
+    position: relative;
+    top: 5px;
+    left: 40px;
+}
+
+@keyframes circle {
+    from {
+        rotate: 0;
+    }
+    to {
+        rotate: 360deg;
+    }
+}
+
+#Title {
+    margin-bottom: 0px;
+    margin-top: 40px;
+    font-size: 50px;
+}
+
+#Subtitle {
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 45px;
+    color: rgb(202, 199, 186);
+}
+
+#Lightning {
+    margin: 30px 0 0 0;
+    width: 70vw;
+    height: auto;
+}
+
+#Lightning:hover {
+    animation: wiggle 3s infinite;
+}
+
+@keyframes wiggle {
+    0% {
+        rotate: 0deg;
+    }
+    20% {
+        rotate: 4deg;
+    }
+    25% {
+        rotate: -1deg;
+    }
+    30% {
+        rotate: 1deg;
+    }
+    35% {
+        rotate: -1deg;
+    }
+    40% {
+        rotate: 1deg;
+    }
+    45% {
+        rotate: -1deg;
+    }
+    55% {
+        rotate: 0;
+    }
+}
+
+#imgCaption {
+    margin: 5px;
+}
