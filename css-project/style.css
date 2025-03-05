@@ -11,11 +11,14 @@ nav {
     display: flex;
     justify-content: space-between;
     font-size: 20px;
+    position: sticky;
 }
 
 nav a {
     padding: 10px 2vw;
-    transition: background-color .5s, padding .5s
+    transition: background-color .5s, padding .5s;
+    color: white; 
+    text-decoration: none;
 }
 
 nav a:hover {
@@ -29,15 +32,66 @@ nav a:hover {
     background-image: url(../img/css-project/space2.jpg);
     background-position: center;
     background-size: cover;
+    /* position: fixed; */
 }
 
 #title {
-    margin: 0;
-    padding-top: 100px;
-    padding-left: 20px;
-    font-size: 40px;
+    margin: 100px 20px 0px 20px;
+    font-size: 45px;
+    background-color: rgba(0, 0, 0, 0.39);
 }
 
 #subtitle {
+    margin: 5px 20px 0px 20px;
+    font-size: 40px;
+    background-color: rgba(0, 0, 0, 0.39);
+}
 
+main {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.concert {
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    padding: 0 20px;
+    column-gap: 20px;
+    font-size: 10px;
+    transition: font-size .5s;
+}
+
+.concertDescription {
+    background-color: rgb(43, 34, 173);
+    padding: 0 20px;
+}
+
+.concertHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: .625em;
+    background-color: rgb(41, 41, 41);
+}
+
+.concertHeader h3 {
+    font-size: 30px;
+}
+
+.concertDescription {
+    font-size: .625em;
+    overflow: hidden;
+    padding: 0 20px;
+    background-color: rgb(43, 34, 173);
+}
+
+.descriptionHeader {
+    font-size: 1em;
+}
+
+.concert:hover {
+    font-size: 20px;
 }
