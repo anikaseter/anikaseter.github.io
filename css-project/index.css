@@ -29,11 +29,10 @@ nav a:hover {
 
 #home {
     width: 100%;
-    height: 300px;
+    padding-bottom: 100px;
     background-image: url(../img/css-project/space2.jpg);
     background-position: center;
     background-size: cover;
-    /* position: fixed; */
 }
 
 #title {
@@ -99,29 +98,22 @@ main {
 
 @media screen and (width>750px) {
     .concert:hover {
-        font-size: 20px;
+        font-size: 22px;
     }   
 }
 
-@media screen and (width<820px) {
+@media screen and (width<=750px) {
     #home {
-        height: 400px;
         text-align: center;
     }
     
     .concert {
         display: flex;
         flex-direction: column;
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .concertHeader {
         padding-bottom: 20px;
-    }
-}
-
-@media screen and (width<480px) {
-    #home {
-        height: 500px;
     }
 }
