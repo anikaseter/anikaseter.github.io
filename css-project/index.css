@@ -103,7 +103,7 @@ main {
     }   
 }
 
-@media screen and (width<750px) {
+@media screen and (width<820px) {
     #home {
         height: 400px;
         text-align: center;
