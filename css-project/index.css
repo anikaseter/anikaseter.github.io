@@ -274,6 +274,15 @@ b {
 }
 
 @media screen and (width<=750px) {
+    body {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+    nav {
+        font-size: 3.5vw;
+    }
+
     #home {
         text-align: center;
     }
