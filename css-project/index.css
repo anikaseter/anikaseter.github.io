@@ -274,12 +274,15 @@ b {
 }
 
 @media screen and (width<=750px) {
-    body {
+    html, body {
         overflow-x: hidden;
-        max-width: 100%;
     }
 
-    nav {
+    body {
+        width: 100%;
+    }
+
+    nav a {
         font-size: 3.5vw;
     }
 
