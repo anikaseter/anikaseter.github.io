@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Doto:wght@100..900&family=Geostar&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+80s+Fade&family=Train+One&display=swap');
+
 body {
-    font-family:monospace;
+    font-family: Quantico;
     background-color: rgb(41, 41, 41);
     color: white;
     font-size: 10px;
@@ -33,18 +35,23 @@ nav a:hover {
     background-image: url(../img/css-project/space2.jpg);
     background-position: center;
     background-size: cover;
+    font-family: Geostar;
 }
 
 #title {
     margin: 100px 20px 0px 20px;
+    padding: 5px 10px;
     font-size: 45px;
     background-color: rgba(0, 0, 0, 0.39);
+    display: inline-block;
 }
 
 #subtitle {
     margin: 5px 20px 0px 20px;
+    padding: 5px 10px;
     font-size: 40px;
     background-color: rgba(0, 0, 0, 0.39);
+    display: inline-block;
 }
 
 main {
@@ -66,8 +73,67 @@ main {
 }
 
 .concertDescription {
-    background-color: rgb(43, 34, 173);
     padding: 0 20px;
+}
+
+#concert1 .concertDescription {
+    background-image: url('../img/css-project/Concert1');
+    background-position: center;
+    background-size: cover;
+}
+
+#concert2 .concertDescription {
+    background-image: url('../img/css-project/Concert2');
+    background-position: center;
+    background-size: cover;
+}
+
+#concert3 .concertDescription {
+    background-image: url('../img/css-project/Concert3.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#concert4 .concertDescription {
+    background-image: url('../img/css-project/Concert4.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#concert5 .concertDescription {
+    background-image: url('../img/css-project/Concert5.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#concert6 .concertDescription {
+    background-image: url('../img/css-project/Concert6.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#concert7 .concertDescription {
+    background-image: url('../img/css-project/Concert7.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#concert8 .concertDescription {
+    background-image: url('../img/css-project/Concert8.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#concert9 .concertDescription {
+    background-image: url('../img/css-project/Concert9.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#concert10 .concertDescription {
+    background-image: url('../img/css-project/Concert10.png');
+    background-position: center;
+    background-size: cover;
 }
 
 .concertHeader {
@@ -88,18 +154,57 @@ main {
 .concertDescription {
     font-size: .625em;
     overflow: hidden;
+}
+
+.concertDescription p {
     padding: 10px 20px;
     background-color: rgb(43, 34, 173);
+    opacity: 0;
+    transition: opacity .5s;
 }
 
 .descriptionHeader {
     font-size: 1em;
 }
 
+footer {
+    background-image: url(../img/css-project/space2.jpg);
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    column-gap: 20px;
+    font-size: 16px;
+    border-top: 5px solid black;
+}
+
+#copyright {
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.39);
+    margin: 20px 0px 20px 20px;
+    text-align: center;
+}
+
+#contactUs {
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.39);
+    line-height: .5;
+    margin: 20px;
+    padding: 0px 20px;
+}
+
+#contactUs h3 {
+    line-height: 1.25;
+}
+
 @media screen and (width>750px) {
     .concert:hover {
         font-size: 22px;
-    }   
+
+        .concertDescription p {
+            opacity: 100;
+        }
+    }
 }
 
 @media screen and (width<=750px) {
