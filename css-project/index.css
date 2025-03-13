@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Doto:wght@100..900&family=Geostar&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+80s+Fade&family=Train+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Badeen+Display&family=Sixtyfour&family=Jersey+20&family=Saira+Stencil+One&family=Monofett&family=Geostar+Fill&family=Rubik+Moonrocks&family=Rubik+Puddles&family=Tilt+Prism&family=Jersey+15&display=swap');
 
 body {
     font-family: Quantico;
@@ -15,6 +16,8 @@ nav {
     font-size: 20px;
     position: sticky;
     top: 0px;
+    z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 4px 10px;
 }
 
 nav a {
@@ -35,23 +38,26 @@ nav a:hover {
     background-image: url(../img/css-project/space2.jpg);
     background-position: center;
     background-size: cover;
-    font-family: Geostar;
+    font-family: 'Sixtyfour';
+    animation: glow 3s alternate infinite;
 }
 
 #title {
     margin: 100px 20px 0px 20px;
-    padding: 5px 10px;
+    padding: 10px 10px;
     font-size: 45px;
-    background-color: rgba(0, 0, 0, 0.39);
+    background-color: rgba(0, 0, 0, 0.45);
     display: inline-block;
+    font-weight: normal;
 }
 
 #subtitle {
     margin: 5px 20px 0px 20px;
-    padding: 5px 10px;
+    padding: 10px 10px;
     font-size: 40px;
-    background-color: rgba(0, 0, 0, 0.39);
+    background-color: rgba(0, 0, 0, 0.45);
     display: inline-block;
+    font-weight: normal;
 }
 
 main {
@@ -67,13 +73,9 @@ main {
     grid-template-columns: 3fr 4fr;
     padding: 0px;
     column-gap: 20px;
-    font-size: 10px;
+    font-size: 15px;
     transition: font-size .5s;
     border-top: solid black 3px;
-}
-
-.concertDescription {
-    padding: 0 20px;
 }
 
 #concert1 .concertDescription {
@@ -146,25 +148,47 @@ main {
     background-color: rgb(41, 41, 41);
 }
 
+.concertTitle {
+    animation: glow 3s alternate infinite;
+}
+
+@keyframes glow {
+    0% {text-shadow: 0px 0px 0px white;}
+    50% {text-shadow: 0px 0px 0px white;}
+    75% {text-shadow: 1px 1px 5px white;}
+    100% {text-shadow: 1px 1px 10px white;}
+}
+
+/* .concertHeader .colorful {
+    animation: colorfulGlow 3s alternate infinite;
+}
+
+@keyframes colorfulGlow {
+    0% {text-shadow: 0px 0px 0px rgb(168, 75, 255);}
+    50% {text-shadow: 0px 0px 0px rgb(168, 75, 255);}
+    75% {text-shadow: 1px 1px 5px rgb(168, 75, 255);}
+    100% {text-shadow: 1px 1px 10px rgb(168, 75, 255);}
+} */
+
 .concertHeader h3 {
-    font-size: 30px;
+    font-size: 33px;
     margin-bottom: 0;
+    margin-top: 10px;
+    font-family: 'Sixtyfour';
+    font-weight: normal;
 }
 
 .concertDescription {
     font-size: .625em;
     overflow: hidden;
+    padding: 0 20px;
 }
 
 .concertDescription p {
     padding: 10px 20px;
-    background-color: rgb(43, 34, 173);
+    background-color: rgb(16, 11, 92);
     opacity: 0;
     transition: opacity .5s;
-}
-
-.descriptionHeader {
-    font-size: 1em;
 }
 
 footer {
@@ -172,22 +196,22 @@ footer {
     background-position: center;
     background-size: cover;
     display: grid;
-    grid-template-columns: 3fr 4fr;
+    grid-template-columns: 3fr 3fr 1fr;
     column-gap: 20px;
-    font-size: 16px;
-    border-top: 5px solid black;
+    font-size: 20px;
+    border-top: 3px solid black;
 }
 
 #copyright {
     align-content: center;
-    background-color: rgba(0, 0, 0, 0.39);
+    background-color: rgba(0, 0, 0, 0.45);
     margin: 20px 0px 20px 20px;
     text-align: center;
 }
 
 #contactUs {
     align-content: center;
-    background-color: rgba(0, 0, 0, 0.39);
+    background-color: rgba(0, 0, 0, 0.45);
     line-height: .5;
     margin: 20px;
     padding: 0px 20px;
@@ -195,11 +219,53 @@ footer {
 
 #contactUs h3 {
     line-height: 1.25;
+    font-family: 'Sixtyfour';
+    font-weight: normal;
+}
+
+#backToTop {
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.45);
+    margin: 20px 20px 20px 20px;
+    padding: 0px 20px;
+    text-align: center;
+    line-height: 0;
+    transition: background-color .5s;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+#backToTop:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#arrow {
+    font-size: 30px;
+}
+
+.colorful {
+    display: inline;
+    color: rgb(168, 75, 255);
+}
+
+h3.identifier {
+    font-size: 10px;
+    margin-top: 20px;
+    padding-left: 3px;
+}
+
+b {
+    color: rgb(209, 124, 209);
+}
+
+#mobileToTop {
+    display: none;
 }
 
 @media screen and (width>750px) {
     .concert:hover {
-        font-size: 22px;
+        font-size: 30px;
 
         .concertDescription p {
             opacity: 100;
@@ -211,14 +277,65 @@ footer {
     #home {
         text-align: center;
     }
+
+    #title {
+        font-size: 5vw;
+    }
+
+    #subtitle {
+        font-size: 4vw;
+    }
     
     .concert {
         display: flex;
         flex-direction: column;
-        font-size: 22px;
+        font-size: 30px;
     }
 
     .concertHeader {
         padding-bottom: 20px;
+    }
+
+    .concertHeader h3 {
+        font-size: 6vw;
+    }
+
+    h3.identifier {
+        font-size: 10px;
+    }
+
+    .concertDescription p {
+        opacity: 100%;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        border-top: black solid 10px;
+    }
+
+    #copyright {
+        margin: 20px;
+    }
+
+    #mobileToTop {
+        display: block;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 30000;
+        width: 100px;
+        height: 100px;
+        align-content: center;
+        background-color: rgba(0, 0, 0, 0.65);
+        text-align: center;
+        transition: background-color .5s;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+    #mobileToTop:hover {
+        background-color: rgba(0, 0, 0, 0.95);
     }
 }
