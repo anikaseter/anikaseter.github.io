@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Doto:wght@100..900&family=Geostar&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+80s+Fade&family=Train+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Badeen+Display&family=Sixtyfour&family=Jersey+20&family=Saira+Stencil+One&family=Monofett&family=Geostar+Fill&family=Rubik+Moonrocks&family=Rubik+Puddles&family=Tilt+Prism&family=Jersey+15&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Sixtyfour');
 
 body {
     font-family: Quantico;
@@ -328,6 +327,11 @@ b {
 
     #copyright {
         margin: 20px;
+    }
+
+    #contactUs {
+        line-height: normal;
+        text-align: center;
     }
 
     #mobileToTop {
