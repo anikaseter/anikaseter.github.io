@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
+
+body {
+    font-family: 'Mountains of Christmas';
+    background-color: rgb(32, 31, 31);
+    color: pink;
+    margin: 0px;
+}
+
+h1 {
+    text-align: center;
+    background-color: purple;
+    font-size: 150px;
+    padding: 10px;
+    margin: 0px;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    background-color: rgb(33, 97, 140);
+    color: rgb(255, 218, 224);
+    text-align: center;
+    vertical-align: center;
+    width: 500px;
+    font-size: 75px;
+    padding: 10px;
+    transition: box-shadow .5s;
+}
+
+p:hover {
+    box-shadow: 0px 0px 15px white;
+}
+
+#spinningPhoto {
+    position:fixed;
+    top: 42.5vh;
+    animation: spin 5s infinite linear;
+    width: 100%;
+    z-index: -1;
+}
+
+@keyframes spin {
+    0% {rotate: 0;}
+    25% {rotate: 90deg;}
+    50% {rotate: 180deg;}
+    75% {rotate: 270deg;}
+    100% {rotate: 360deg;}
+}
+
+#spinningPhoto img {
+    /* display: none; */
+    /* animation: moveAround 10s infinite; */
+    width: 15vw;
+    position: relative;
+    left: 42.5vw;
+    top: 42.5vh;
+}
+
+#darkness {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 100;
+    display: none;
+}
+
+#sleep {
+    z-index: 101;
+}
