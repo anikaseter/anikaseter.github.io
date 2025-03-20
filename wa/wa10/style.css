@@ -1,0 +1,49 @@
+body {
+    font-family: helvetica, sans-serif;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(17, 17, 32);
+    background-image: url("../../img/wa10/starryBackground.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    margin-top: 50px;
+}
+
+label {
+    font-weight: bold;
+}
+
+div {
+    padding-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    width: 150px;
+}
+
+p {
+    background: #cbc9d6;
+    color: #151924;
+    padding: 15px;
+    visibility: hidden;
+    width: 300px;
+    box-shadow: 0px 0px 10px rgb(230, 230, 230);
+    animation: fade-in 1s;
+    animation-play-state: paused;
+}
+
+@keyframes fade-in {
+    0% {opacity: 0;}
+    100% {opacity: 100;}
+}
+
+button {
+    background-color: rgb(48, 48, 78);
+    color: white;
+}
