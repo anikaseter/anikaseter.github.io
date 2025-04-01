@@ -43,10 +43,10 @@ function displayRandomMessage() {
         displayMessage("Brian: Hi there, how are you today?", "chat");
     }
     else if(randomNumber == 2) {
-        displayMessage("Your mom", "warning");
+        displayMessage("The world is ending. Source: Trust me, bro.", "warning");
     }
     else if(randomNumber == 3) {
-        displayMessage("yeehaw", "chat");
+        displayMessage("Yeehaw", "chat");
     }
     else {
         displayMessage("Congrats, you broke my random message chooser.", "warning");
