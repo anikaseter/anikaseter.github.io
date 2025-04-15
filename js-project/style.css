@@ -26,33 +26,50 @@ h1 {
 }
 
 #maze {
+    width: 510px;
+    height: 510px;
+}
+
+#mazeCells {
     border: 5px black solid;
     width: 500px;
     height: 500px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    position: absolute;
 }
 
-.cell {
-    border-top: black 2px solid;
-    border-right: black 2px solid;
-}
-
-/* .wall {
-    border: 2.5px black solid;
-    width: 75px;
-    height: 0px;
+.numButton {
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     position: relative;
-    top: 50px;
-    left: 50px;
+    left: 10px;
+    top: 10px;
+}
+
+/* 
+    Keeping this here in case I want to try and make the walls clickable again
+    .cell {
+    border-right: 2px rgb(196, 196, 196) dotted;
+    border-bottom: 2px rgb(196, 196, 196) dotted;
 } */
+
+.rightWall {
+    border-right: 3px black solid;
+}
+
+.bottomWall {
+    border-bottom: 3px black solid;
+}
 
 #resetButton {
     border: 3px black solid;
     width: 200px;
     height: 40px;
-    margin: 16px 0;
+    margin-top: 25px;
     align-content: center;
     font-size: 25px;
     transition: background-color .25s;
@@ -61,3 +78,18 @@ h1 {
 #resetButton:hover {
     background-color: rgba(0, 0, 0, 0.25);
 }
+
+#enterButton {
+    border: 3px black solid;
+    width: 200px;
+    height: 40px;
+    margin-top: 10px;
+    align-content: center;
+    font-size: 25px;
+    transition: background-color .25s;
+}
+
+#enterButton:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
