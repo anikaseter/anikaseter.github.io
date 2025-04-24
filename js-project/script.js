@@ -485,9 +485,15 @@ function test() {
 // Then it repeats and refinds its velocity bc now it should have moved into a new cell
 
 // Moves the buttons each frame
+let counter = 0;
 function frame() {
     for(let i = 0; i < 10; i++) {
         circleButtons[i].displayCircle();
+    }
+    counter++;
+    if(counter == 50) {
+        findVelocities();
+        counter = 0;
     }
 }
 
@@ -499,5 +505,5 @@ function findVelocities() {
 }
 
 findVelocities();
-let id2 = setInterval(findVelocities, 1000);
+// let id2 = setInterval(findVelocities, 1000);
 let id1 = setInterval(frame, 20);
