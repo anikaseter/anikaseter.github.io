@@ -40,14 +40,19 @@ h1 {
     position: absolute;
 }
 
+#buttons {
+    width: 510px;
+    height: 510px;
+    padding: 10px;
+    position: fixed;
+}
+
 .numButton {
     background-color: red;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    position: relative;
-    left: 10px;
-    top: 10px;
+    position: absolute;
 }
 
 /* 
