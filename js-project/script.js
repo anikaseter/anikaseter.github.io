@@ -1,10 +1,3 @@
-/*
-    Notes to self:
-    Something is wrong between initializing the walls of the cells and reading them;
-    pretty sure it's to do with column-row mapping being off rip
-*/
-
-
 // Variables
 let resetBtn = document.getElementById("resetButton");
 let numBox = document.getElementById("numberBox");
@@ -47,7 +40,8 @@ class circleButton {
         this.htmlObject = htmlObject;
         this.number = number;
         this.htmlObject.addEventListener('click', this.clickNumber.bind(this));
-        this.cell = findCell(this.x, this.y);
+        this.cell = findCell(this.y, this.x);
+        this.previousCell;
     }
 
     // Displays the buttons
@@ -55,7 +49,7 @@ class circleButton {
         // Change x and y and refind cell
         this.x = this.x + this.xVel;
         this.y = this.y + this.yVel;
-        this.cell = findCell(this.x, this.y);
+        this.cell = findCell(this.y, this.x);
 
         // Change the x and y of the html object
         this.htmlObject.style.top = this.y + 'px';
@@ -70,42 +64,116 @@ class circleButton {
     // Determine what its xVel and yVel should be
     // Whoops I think I'm making a rudimentary game AI
     determineVelocities() {
-        let canMove = [true, true, true, true];
+        // Reset their velocities so they don't move diagonally lol
+        this.xVel = 0;
+        this.yVel = 0;
+
+        let canMove = [true, true, true, true]; // True = can move that way; false = can't move that way
         // Check if the cell it's in has walls, and if so, rule out moving toward those walls
-        // Check if it's by the right full wall, else check if there's a wall to its right
+        // Check if it's by the bottom full wall, else check if its cell has a bottom wall
         if(this.cell[0] == 9) {
-            canMove[0] = false;   
-        }
-        else if(walledCells[this.cell[0]][this.cell[1]].walls[0] == true) {
-            canMove[0] = false;
-        }
-        // Check if it's by the bottom full wall, else check if there's a wall below it
-        if(this.cell[1] == 9) {
-            canMove[1] = false;
+            canMove[1] = false;   
         }
         else if(walledCells[this.cell[0]][this.cell[1]].walls[1] == true) {
             canMove[1] = false;
         }
-        // Check if it's by the left full wall, else check if there's a maze wall to its left
+        // Check if it's by the right full wall, else check if its cell has a right wall
+        if(this.cell[1] == 9) {
+            canMove[0] = false;
+        }
+        else if(walledCells[this.cell[0]][this.cell[1]].walls[0] == true) {
+            canMove[0] = false;
+        }
+        // Check if it's by the top full wall, else check if the cell next to it has a bottom wall
         if(this.cell[0] == 0) {
-            canMove[2] = false;
+            canMove[3] = false;
         }
-        else if(walledCells[this.cell[0] - 1][this.cell[1]].walls[0] == true) {
-            canMove[2] = false;
+        else if(walledCells[this.cell[0] - 1][this.cell[1]].walls[1] == true) {
+            canMove[3] = false;
         }
-        // Check if it's by the top full wall, else check if there's a maze wall above it
+        // Check if it's by the right full wall, else check if the cell next to it has a right wall
         if(this.cell[1] == 0) {
-            canMove[3] = false;
+            canMove[2] = false;
         }
-        else if(walledCells[this.cell[0]][this.cell[1] - 1].walls[1] == true) {
-            canMove[3] = false;
+        else if(walledCells[this.cell[0]][this.cell[1] - 1].walls[0] == true) {
+            canMove[2] = false;
+        }
+        
+        // Count how many options there are to move for
+        let moveChoices = 0;
+        for(let i = 0; i < 4; i++) {
+            if(canMove[i]) {
+                moveChoices++;
+            }
         }
 
-        console.log(walledCells[this.cell[0]][this.cell[1]].walls);
+        // Stop it from going back to the previous cell if there are other options
+        if (this.previousCell && moveChoices > 1) {
+            if (this.previousCell[1] > this.cell[1]) {
+                canMove[0] = false;
+                moveChoices--;
+            } 
+            else if (this.previousCell[0] > this.cell[0]) {
+                canMove[1] = false;
+                moveChoices--;
+            } 
+            else if (this.previousCell[1] < this.cell[1]) {
+                canMove[2] = false;
+                moveChoices--;
+            } 
+            else if (this.previousCell[0] < this.cell[0]) {
+                canMove[3] = false;
+                moveChoices--;
+            }
+        }
 
         // If there's no option to move, cry
+        if(moveChoices == 0) {
+            this.xVel = 0;
+            this.yVel = 0;
+        }
         // If there's only one option to move, go that way
+        else if(moveChoices == 1) {
+            if(canMove[0]) {
+                this.xVel = 1;
+            }
+            else if(canMove[1]) {
+                this.yVel = 1;
+            }
+            else if(canMove[2]) {
+                this.xVel = -1;
+            }
+            else if(canMove[3]) {
+                this.yVel = -1;
+            }
+        }
         // If there's multiple, flip a coin and then decide
+        else {
+            let randomDir = getRandomIntInclusive(0, moveChoices - 1);
+            let counter = 0;
+            for(let i = 0; i < 4; i++) {
+                if(canMove[i] && counter == randomDir) {
+                    if(i == 0) {
+                        this.xVel = 1;
+                    }
+                    else if(i == 1) {
+                        this.yVel = 1;
+                    }
+                    else if(i == 2) {
+                        this.xVel = -1;
+                    }
+                    else if(i == 3) {
+                        this.yVel = -1;
+                    }
+                    break;
+                }
+                else if(canMove[i]) {
+                    counter++;
+                }
+            }
+        }
+
+        this.previousCell = [this.cell[0], this.cell[1]];
     }
 }
 
@@ -139,10 +207,10 @@ function initializeWalls() {
     let mazeText = '';
 
     // Randomize where walls are in each cell
-    // Per column
+    // Per row
     for(let i = 0; i < 10; i++) {
-        // Each item in the column
-        let column = [];
+        // Each item in the row
+        let row = [];
         for(let j = 0; j < 10; j++) {
             let walls = [];
             
@@ -164,21 +232,21 @@ function initializeWalls() {
                 walls[1] = false;
             }
 
-            // Add the cell into the column
-            column[j] = new walledCell(i * 10 + j, walls[0], walls[1]);
+            // Add the cell into the row
+            row[j] = new walledCell(i * 10 + j, walls[0], walls[1]);
 
             // Add the cell into the text that will go into the html
             mazeText += '<div class="cell'
-            if(column[j].walls[0] == true) {
+            if(row[j].walls[0] == true) {
                 mazeText += ' rightWall';
             }
-            if(column[j].walls[1] == true) {
+            if(row[j].walls[1] == true) {
                 mazeText += ' bottomWall';
             }
             mazeText += `" id="cell${i * 10 + j}"></div>`;
         }
 
-        walledCells[i] = column;
+        walledCells[i] = row;
     }
 
     // Add the text into the html
@@ -330,83 +398,106 @@ function resetNumBox() {
 }
 
 
-// Determines what cell a button is in based on XY coords; returns an array of [column, row]
-function findCell(x, y) {
-    let columnRow = [0, 0];
+// Determines what cell a button is in based on XY coords; returns an array of [row, column]
+function findCell(y, x) {
+    let rowColumn = [0, 0];
     // Find what column it's  in
     if(x < 35) {
-        columnRow[0] = 0;
+        rowColumn[1] = 0;
     }
     else if(x < 85) {
-        columnRow[0] = 1;
+        rowColumn[1] = 1;
     }
     else if(x < 135) {
-        columnRow[0] = 2;
+        rowColumn[1] = 2;
     }
     else if(x < 185) {
-        columnRow[0] = 3;
+        rowColumn[1] = 3;
     }
     else if(x < 235) {
-        columnRow[0] = 4;
+        rowColumn[1] = 4;
     }
     else if(x < 285) {
-        columnRow[0] = 5;
+        rowColumn[1] = 5;
     }
     else if(x < 335) {
-        columnRow[0] = 6;
+        rowColumn[1] = 6;
     }
     else if(x < 385) {
-        columnRow[0] = 7;
+        rowColumn[1] = 7;
     }
     else if(x < 435) {
-        columnRow[0] = 8;
+        rowColumn[1] = 8;
     }
     else {
-        columnRow[0] = 9;
+        rowColumn[1] = 9;
     }
     
     // Find what row it's in
     if(y < 35) {
-        columnRow[1] = 0;
+        rowColumn[0] = 0;
     }
     else if(y < 85) {
-        columnRow[1] = 1;
+        rowColumn[0] = 1;
     }
     else if(y < 135) {
-        columnRow[1] = 2;
+        rowColumn[0] = 2;
     }
     else if(y < 185) {
-        columnRow[1] = 3;
+        rowColumn[0] = 3;
     }
     else if(y < 235) {
-        columnRow[1] = 4;
+        rowColumn[0] = 4;
     }
     else if(y < 285) {
-        columnRow[1] = 5;
+        rowColumn[0] = 5;
     }
     else if(y < 335) {
-        columnRow[1] = 6;
+        rowColumn[0] = 6;
     }
     else if(y < 385) {
-        columnRow[1] = 7;
+        rowColumn[0] = 7;
     }
     else if(y < 435) {
-        columnRow[1] = 8;
+        rowColumn[0] = 8;
     }
     else {
-        columnRow[1] = 9;
+        rowColumn[0] = 9;
     }
 
-    return columnRow;
+    return rowColumn;
 }
-
 
 
 
 // Testing
 function test() {
-    console.log(circleButtons[0].cell);
-    circleButtons[0].determineVelocities();
+    return;
 }
 
-test();
+
+
+
+// We have the thing that repeats every second
+// Within that each ball determines velocity once; loop through each to determine velocity
+// Then it moves itself 5 times
+// Loop 5 times of a loop of each ball moving itself once
+// Then it repeats and refinds its velocity bc now it should have moved into a new cell
+
+// Moves the buttons each frame
+function frame() {
+    for(let i = 0; i < 10; i++) {
+        circleButtons[i].displayCircle();
+    }
+}
+
+// Finds velocities for each circle
+function findVelocities() {
+    for(let i = 0; i < 10; i++) {
+        circleButtons[i].determineVelocities();
+    }
+}
+
+findVelocities();
+let id2 = setInterval(findVelocities, 1000);
+let id1 = setInterval(frame, 20);
