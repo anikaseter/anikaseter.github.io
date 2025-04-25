@@ -1,5 +1,6 @@
 // Variables
 let resetBtn = document.getElementById("resetButton");
+let enterBtn = document.getElementById("enterButton");
 let numBox = document.getElementById("numberBox");
 let maze = document.getElementById("maze");
 let mazeCells = document.getElementById("mazeCells");
@@ -16,6 +17,9 @@ let num9 = document.getElementById("9")
 let numberButtons = [num0, num1, num2, num3, num4, num5, num6, num7, num8, num9];
 let walledCells = [];
 let circleButtons = [];
+let digitsEntered = 0;
+let enterOverlay = document.getElementById("enteredOverlay");
+let enterBox = document.getElementById("enteredNumber");
 
 
 
@@ -58,7 +62,14 @@ class circleButton {
 
     // Enters numbers into the box upon clicking a button
     clickNumber() {
-        numBox.textContent += this.number;
+        if(digitsEntered < 10) {
+            numBox.textContent += this.number;
+            digitsEntered++;
+        }
+        // Checks if all numbers are entered, and if so, makes the Enter button appear
+        if(digitsEntered == 10) {
+            enterBtn.style.display = 'initial';
+        }
     }
 
     // Determine what its xVel and yVel should be
@@ -181,6 +192,7 @@ class circleButton {
 
 // Event Listeners
 resetBtn.addEventListener('click', resetNumBox);
+enterBtn.addEventListener('click', confirmNumber);
 
 
 
@@ -395,6 +407,7 @@ initializeButtons();
 // Empties number box
 function resetNumBox() {
     numBox.textContent = '';
+    digitsEntered = 0;
 }
 
 
@@ -468,6 +481,32 @@ function findCell(y, x) {
     return rowColumn;
 }
 
+
+// Pops up a box asking you to confirm you entered your phone number
+function confirmNumber() {
+    let enteredNumber = numBox.textContent;
+    let text = document.getElementById('confirmParagraph');
+    text.textContent = `Is your phone number ${enteredNumber}?`;
+
+    enterOverlay.style.display = 'flex';
+    enterBox.style.display = 'flex';
+
+    // Set up new variables and event listeners
+    let yesBtn = document.getElementById('yesBtn');
+    let noBtn = document.getElementById('noBtn');
+    yesBtn.addEventListener('click', () => confirm(enteredNumber));
+    noBtn.addEventListener('click', deny);
+}
+
+function confirm(enteredNumber) {
+    enterBox.innerHTML = `<h2>Congratulations!</h2><p>You successfully entered ${enteredNumber} as your phone number. Thanks for playing!</p>`;
+}
+
+function deny() {
+    enterOverlay.style.display = 'none';
+    enterBox.style.display = 'none';
+    resetNumBox();
+}
 
 
 // Testing

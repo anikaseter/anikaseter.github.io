@@ -22,7 +22,7 @@ h1 {
     width: 200px;
     height: 40px;
     font-size: 25px;
-    margin: 16px 0;
+    margin: 10px 0;
 }
 
 #maze {
@@ -73,11 +73,11 @@ h1 {
 #resetButton {
     border: 3px black solid;
     width: 200px;
-    height: 40px;
-    margin-top: 25px;
+    margin-top: 10px;
     align-content: center;
     font-size: 25px;
     transition: background-color .25s;
+    flex-shrink: 1;
 }
 
 #resetButton:hover {
@@ -87,14 +87,58 @@ h1 {
 #enterButton {
     border: 3px black solid;
     width: 200px;
-    height: 40px;
     margin-top: 10px;
     align-content: center;
     font-size: 25px;
     transition: background-color .25s;
+    flex-shrink: 1;
+    display: none;
 }
 
 #enterButton:hover {
     background-color: rgba(0, 0, 0, 0.25);
 }
 
+#enteredOverlay {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.90);
+    display: none;
+}
+
+#enteredNumber {
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    border: 2px black solid;
+    box-shadow: 0px 0px 10px rgb(85, 85, 85);
+    width: 550px;
+    height: 175px;
+    top: 35vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+
+#confirmBtns {
+    display: flex;
+}
+
+h2 {
+    margin: 0;
+    margin-top: 20px;
+}
+
+.confirmBtn {
+    width: 100px;
+    height: 30px;
+    margin: 0px 30px;
+    border: 2px black solid;
+    transition: background-color .25s;
+    align-content: center;
+}
+
+.confirmBtn:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
