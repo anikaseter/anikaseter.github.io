@@ -506,6 +506,7 @@ function deny() {
     enterOverlay.style.display = 'none';
     enterBox.style.display = 'none';
     resetNumBox();
+    enterBtn.style.display = 'none';
 }
 
 
