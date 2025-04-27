@@ -408,6 +408,7 @@ initializeButtons();
 function resetNumBox() {
     numBox.textContent = '';
     digitsEntered = 0;
+    enterBtn.style.display = 'none';
 }
 
 
