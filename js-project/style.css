@@ -70,6 +70,11 @@ h1 {
     border-bottom: 3px black solid;
 }
 
+#resetEnterButtons {
+    display: flex;
+    flex-direction: column;
+}
+
 #resetButton {
     border: 3px black solid;
     width: 200px;
@@ -141,4 +146,12 @@ h2 {
 
 .confirmBtn:hover {
     background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* Make the stuff shrink when the screen is too short for it to fit bc my mac is being dumb now*/
+@media screen and (height < 780px) {
+    #resetEnterButtons {
+        flex-direction: row;
+        gap: 20px;
+    }
 }
