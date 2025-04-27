@@ -135,6 +135,10 @@ h2 {
     margin-top: 20px;
 }
 
+#enteredNumber p {
+    padding: 0px 40px;
+}
+
 .confirmBtn {
     width: 100px;
     height: 30px;
